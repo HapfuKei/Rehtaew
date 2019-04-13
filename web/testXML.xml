@@ -1,0 +1,175 @@
+<weatherdata>
+<location>
+<name>Daugavpils</name>
+<type/>
+<country>LV</country>
+<timezone/>
+<location altitude="0" latitude="55.8776" longitude="26.5286" geobase="geonames" geobaseid="460413"/>
+</location>
+<credit/>
+<meta>
+<lastupdate/>
+<calctime>0.0039</calctime>
+<nextupdate/>
+</meta>
+<sun rise="2019-04-13T03:14:34" set="2019-04-13T17:14:02"/>
+<forecast>
+<time from="2019-04-13T15:00:00" to="2019-04-13T18:00:00">...</time>
+<time from="2019-04-13T18:00:00" to="2019-04-13T21:00:00">...</time>
+<time from="2019-04-13T21:00:00" to="2019-04-14T00:00:00">...</time>
+<time from="2019-04-14T00:00:00" to="2019-04-14T03:00:00">...</time>
+<time from="2019-04-14T03:00:00" to="2019-04-14T06:00:00">...</time>
+<time from="2019-04-14T06:00:00" to="2019-04-14T09:00:00">...</time>
+<time from="2019-04-14T09:00:00" to="2019-04-14T12:00:00">...</time>
+<time from="2019-04-14T12:00:00" to="2019-04-14T15:00:00">...</time>
+<time from="2019-04-14T15:00:00" to="2019-04-14T18:00:00">...</time>
+<time from="2019-04-14T18:00:00" to="2019-04-14T21:00:00">...</time>
+<time from="2019-04-14T21:00:00" to="2019-04-15T00:00:00">...</time>
+<time from="2019-04-15T00:00:00" to="2019-04-15T03:00:00">...</time>
+<time from="2019-04-15T03:00:00" to="2019-04-15T06:00:00">...</time>
+<time from="2019-04-15T06:00:00" to="2019-04-15T09:00:00">...</time>
+<time from="2019-04-15T09:00:00" to="2019-04-15T12:00:00">...</time>
+<time from="2019-04-15T12:00:00" to="2019-04-15T15:00:00">...</time>
+<time from="2019-04-15T15:00:00" to="2019-04-15T18:00:00">...</time>
+<time from="2019-04-15T18:00:00" to="2019-04-15T21:00:00">...</time>
+<time from="2019-04-15T21:00:00" to="2019-04-16T00:00:00">...</time>
+<time from="2019-04-16T00:00:00" to="2019-04-16T03:00:00">...</time>
+<time from="2019-04-16T03:00:00" to="2019-04-16T06:00:00">...</time>
+<time from="2019-04-16T06:00:00" to="2019-04-16T09:00:00">...</time>
+<time from="2019-04-16T09:00:00" to="2019-04-16T12:00:00">...</time>
+<time from="2019-04-16T12:00:00" to="2019-04-16T15:00:00">...</time>
+<time from="2019-04-16T15:00:00" to="2019-04-16T18:00:00">...</time>
+<time from="2019-04-16T18:00:00" to="2019-04-16T21:00:00">...</time>
+<time from="2019-04-16T21:00:00" to="2019-04-17T00:00:00">...</time>
+<time from="2019-04-17T00:00:00" to="2019-04-17T03:00:00">
+<symbol number="800" name="clear sky" var="01n"/>
+<precipitation/>
+<windDirection deg="83.5068" code="E" name="East"/>
+<windSpeed mps="4.11" name="Gentle Breeze"/>
+<temperature unit="kelvin" value="274.576" min="274.576" max="274.576"/>
+<pressure unit="hPa" value="1031.29"/>
+<humidity value="91" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-17T03:00:00" to="2019-04-17T06:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="94.504" code="E" name="East"/>
+<windSpeed mps="4.01" name="Gentle Breeze"/>
+<temperature unit="kelvin" value="278.673" min="278.673" max="278.673"/>
+<pressure unit="hPa" value="1032.13"/>
+<humidity value="79" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-17T06:00:00" to="2019-04-17T09:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="92" code="E" name="East"/>
+<windSpeed mps="4.67" name="Gentle Breeze"/>
+<temperature unit="kelvin" value="283.836" min="283.836" max="283.836"/>
+<pressure unit="hPa" value="1032.48"/>
+<humidity value="75" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-17T09:00:00" to="2019-04-17T12:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="98.0022" code="E" name="East"/>
+<windSpeed mps="4.72" name="Gentle Breeze"/>
+<temperature unit="kelvin" value="285.336" min="285.336" max="285.336"/>
+<pressure unit="hPa" value="1032.47"/>
+<humidity value="68" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-17T12:00:00" to="2019-04-17T15:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="101.501" code="ESE" name="East-southeast"/>
+<windSpeed mps="3.76" name="Gentle Breeze"/>
+<temperature unit="kelvin" value="285.642" min="285.642" max="285.642"/>
+<pressure unit="hPa" value="1032.28"/>
+<humidity value="61" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-17T15:00:00" to="2019-04-17T18:00:00">
+<symbol number="800" name="clear sky" var="01n"/>
+<precipitation/>
+<windDirection deg="68.5012" code="ENE" name="East-northeast"/>
+<windSpeed mps="2.41" name="Light breeze"/>
+<temperature unit="kelvin" value="280.526" min="280.526" max="280.526"/>
+<pressure unit="hPa" value="1033.12"/>
+<humidity value="71" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-17T18:00:00" to="2019-04-17T21:00:00">
+<symbol number="800" name="clear sky" var="01n"/>
+<precipitation/>
+<windDirection deg="68.5004" code="ENE" name="East-northeast"/>
+<windSpeed mps="2.51" name="Light breeze"/>
+<temperature unit="kelvin" value="276.607" min="276.607" max="276.607"/>
+<pressure unit="hPa" value="1034.02"/>
+<humidity value="81" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-17T21:00:00" to="2019-04-18T00:00:00">
+<symbol number="800" name="clear sky" var="01n"/>
+<precipitation/>
+<windDirection deg="38.5038" code="NE" name="NorthEast"/>
+<windSpeed mps="1.21" name="Calm"/>
+<temperature unit="kelvin" value="274.065" min="274.065" max="274.065"/>
+<pressure unit="hPa" value="1034.6"/>
+<humidity value="77" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-18T00:00:00" to="2019-04-18T03:00:00">
+<symbol number="800" name="clear sky" var="01n"/>
+<precipitation/>
+<windDirection deg="20.5012" code="NNE" name="North-northeast"/>
+<windSpeed mps="1.31" name="Calm"/>
+<temperature unit="kelvin" value="272.879" min="272.879" max="272.879"/>
+<pressure unit="hPa" value="1034.92"/>
+<humidity value="76" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-18T03:00:00" to="2019-04-18T06:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="30.5005" code="NNE" name="North-northeast"/>
+<windSpeed mps="1.97" name="Light breeze"/>
+<temperature unit="kelvin" value="281.333" min="281.333" max="281.333"/>
+<pressure unit="hPa" value="1034.98"/>
+<humidity value="82" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-18T06:00:00" to="2019-04-18T09:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="352.501" code="" name=""/>
+<windSpeed mps="2.41" name="Light breeze"/>
+<temperature unit="kelvin" value="286.261" min="286.261" max="286.261"/>
+<pressure unit="hPa" value="1034.54"/>
+<humidity value="79" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-18T09:00:00" to="2019-04-18T12:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="347.003" code="NNW" name="North-northwest"/>
+<windSpeed mps="3.36" name=""/>
+<temperature unit="kelvin" value="287.757" min="287.757" max="287.757"/>
+<pressure unit="hPa" value="1033.64"/>
+<humidity value="70" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+<time from="2019-04-18T12:00:00" to="2019-04-18T15:00:00">
+<symbol number="800" name="clear sky" var="01d"/>
+<precipitation/>
+<windDirection deg="347.003" code="NNW" name="North-northwest"/>
+<windSpeed mps="4.4" name="Gentle Breeze"/>
+<temperature unit="kelvin" value="287.982" min="287.982" max="287.982"/>
+<pressure unit="hPa" value="1032.6"/>
+<humidity value="60" unit="%"/>
+<clouds value="clear sky" all="0" unit="%"/>
+</time>
+</forecast>
+</weatherdata>

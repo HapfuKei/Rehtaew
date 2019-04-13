@@ -1,0 +1,112 @@
+body {
+    background-image: url("../web/images/background.jpg");  
+    font-family: 'Lato', 'sans-serif' !important;
+    -webkit-font-smoothing: subpixel-antialiased;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 35px;
+    color: white;
+}
+input{
+    color: black;
+}
+/*--- Search tabe ---*/
+.searchTable{
+    background-color: aliceblue;
+}
+.searchTable>input{
+    width: 50%;
+}
+/*--- Search tabe ---*/
+#tempratureMain{
+    font-size: 50px;
+    
+}
+#mainDescription{
+
+}
+/*--- Plits ---*/
+.plitsLock{
+    border: 5px solid white !important;
+    border-bottom: none !important;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: 0.7s;
+}
+.plits{
+    text-align: center;
+
+}
+.plits>div{
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.plits>div>div{ 
+    border: 5px solid;
+    border-color: transparent;
+    border-bottom: none;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: 0.4s;
+}
+.plits>div>div>div>img{
+    width: 80px;
+    height: 80px;
+}
+/*--- informationalPanel ---*/
+.informationalPanel{
+    border: 5px solid white;
+    border-radius: 20px;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+.informationalPanelRightUp{
+    border: 5px solid white;
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    transition: 0.4s;
+}
+.informationalPanelDown{
+    border: 5px solid white;
+    border-radius: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    transition: 0.7s;
+}
+.informationalPanelLeftUp{
+    border: 5px solid white;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    transition: 0.4s;
+}
+/*--- timeCells ---*/
+.timeCells{
+    font-size: 70%;
+    text-align: center; 
+}
+.timeCells>div>div{
+    text-align: center;
+}
+.timeCells>div>div>img{
+    width: 80%;
+    height: 80%;
+}
+/*--- ID ---*/
+#tempratureMain{
+    font-size: 200%;
+}
+#mainDescription{
+padding: 20px;
+}
