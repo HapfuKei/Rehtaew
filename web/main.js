@@ -24,4 +24,6 @@ function clickOnPlitsToLock(id) {
       document.getElementById('informationalPanel').classList.add('informationalPanelDown');
     }
   }
-
+function updateData(){
+ 
+}

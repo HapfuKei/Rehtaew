@@ -30,6 +30,26 @@
 </head>
 
 <body> 
+
+<?php
+$apiKey = "105aa35c4d473a05d3297b2d972dc497";
+$cityId = "Daugavpils,lv";
+$googleApiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" . $cityId . "&lang=en&units=metric&appid=" . $apiKey;
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_URL, $googleApiUrl);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_VERBOSE, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$response = curl_exec($ch);
+
+curl_close($ch);
+$data = json_decode($response);
+?>
+
     <div id="trash"></div>
     <header></header>
     <!--site header -->
@@ -41,7 +61,9 @@
         </div>
         <div class="row">
             <!-- Main temprature -->
-            <span id="tempratureMain">20*C</span>
+            <span id="tempratureMain"><?php
+            print_r($data->list[0]->main->temp);
+              ?></span>
             <span id="mainDescription">Clear</span>
         </div>
         <div></div>
@@ -123,8 +145,8 @@
         <div class="container   informationalPanel" id="informationalPanel">
             <div class="row">
                 <!--informationalPanel-->
-                <div class="col-md-3 col-lg-3">
-                    dadsa
+                <div class="col-md-3 col-lg-3" id="testid">
+                    
                 </div>
                 <div class="col-md-9 col-lg-9 timeCells row">
                     <div id="timeCell1" class="col">
@@ -200,13 +222,6 @@
                 </div>
             </div>
         </div>
-        <div>460413</div>
-
-        <?php
-        $url = "http://api.openweathermap.org/data/2.5/forecast?q=Daugavpils,lv&mode=xml&appid=105aa35c4d473a05d3297b2d972dc497";
-        $xml = simplexml_load_file($url);
-        print($xml);
-        ?>
 </body>
 
-</html>
+</html> 
