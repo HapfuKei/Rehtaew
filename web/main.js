@@ -24,6 +24,8 @@ function clickOnPlitsToLock(id) {
       document.getElementById('informationalPanel').classList.add('informationalPanelDown');
     }
   }
-function updateData(){
- 
-}
+
+  function updateData(){
+    document.getElementById("tempratureMain").innerHTML+=object.list[39].main.temp; //temperatura sejchas
+    
+  }

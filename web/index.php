@@ -34,7 +34,7 @@
 <?php
 $apiKey = "105aa35c4d473a05d3297b2d972dc497";
 $cityId = "Daugavpils,lv";
-$googleApiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" . $cityId . "&lang=en&units=metric&appid=" . $apiKey;
+$googleApiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" . $cityId . "&lang=en&units=metric&appid=" . $apiKey;//."&callback=obj"
 
 $ch = curl_init();
 
@@ -49,6 +49,12 @@ $response = curl_exec($ch);
 curl_close($ch);
 $data = json_decode($response);
 ?>
+<script>
+var object = JSON.parse('<?php echo $response ?>');
+document.addEventListener("DOMContentLoaded", function() {
+  updateData();
+});
+</script>
 
     <div id="trash"></div>
     <header></header>
@@ -61,9 +67,7 @@ $data = json_decode($response);
         </div>
         <div class="row">
             <!-- Main temprature -->
-            <span id="tempratureMain"><?php
-            print_r($data->list[0]->main->temp);
-              ?></span>
+            <span id="tempratureMain"></span>
             <span id="mainDescription">Clear</span>
         </div>
         <div></div>
@@ -146,7 +150,7 @@ $data = json_decode($response);
             <div class="row">
                 <!--informationalPanel-->
                 <div class="col-md-3 col-lg-3" id="testid">
-                    
+                    111223
                 </div>
                 <div class="col-md-9 col-lg-9 timeCells row">
                     <div id="timeCell1" class="col">
