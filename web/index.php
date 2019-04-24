@@ -52,8 +52,9 @@ $data = json_decode($response);
 <script>
 var object = JSON.parse('<?php echo $response ?>');
 document.addEventListener("DOMContentLoaded", function() {
-  updateData();
+    onLoadPage();
 });
+
 </script>
 
     <div id="trash"></div>
@@ -76,72 +77,52 @@ document.addEventListener("DOMContentLoaded", function() {
                 <!-- main plist-->
                 <div class="col">
                     <div onclick="clickOnPlitsToLock(this.id)" id="plits1">
-                        <div>Mon</div>
-                        <div id="plitsWheaterStatus1">
-                            <img src="../web/images/statusIcons/sunCloud.ico" alt="">
+                        <div id="plitsDayName1"></div>
+                        <div >
+                            <img id="plitsWheaterStatus1" src="../web/images/statusIcons/sunCloud.ico" alt="">
                         </div>
-                        <div id="plitsTemperatureDay">20</div>
-                        <div id="plitsTemperatureNIght">7</div>
+                        <div id="plitsTemperatureMax1"></div>
+                        <div id="plitsTemperatureMin1"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div onclick="clickOnPlitsToLock(this.id)" id="plits2">
-                        <div>Tue</div>
-                        <div id="plitsWheaterStatus2">
-                            <img src="../web/images/statusIcons/sunCloud.ico" alt="">
+                        <div id="plitsDayName2"></div>
+                        <div >
+                            <img id="plitsWheaterStatus2" src="../web/images/statusIcons/sunCloud.ico" alt="">
                         </div>
-                        <div id="plitsTemperatureDay">20</div>
-                        <div id="plitsTemperatureNIght">7</div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits3">
-                        <div>Wed</div>
-                        <div id="plitsWheaterStatus3">
-                            <img src="../web/images/statusIcons/sunCloud.ico" alt="">
-                        </div>
-                        <div id="plitsTemperatureDay">20</div>
-                        <div id="plitsTemperatureNIght">7</div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits">
-                        <div>Thu</div>
-                        <div id="plitsWheaterStatus4">
-                            <img src="../web/images/statusIcons/sunCloud.ico" alt="">
-                        </div>
-                        <div id="plitsTemperatureDay">20</div>
-                        <div id="plitsTemperatureNIght">7</div>
+                        <div id="plitsTemperatureMax2"></div>
+                        <div id="plitsTemperatureMin2"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div onclick="clickOnPlitsToLock(this.id)" id="plits5">
-                        <div>Fri</div>
-                        <div id="plitsWheaterStatus5">
-                            <img src="../web/images/statusIcons/sunCloud.ico" alt="">
+                        <div id="plitsDayName3"></div>
+                        <div >
+                            <img id="plitsWheaterStatus3" src="../web/images/statusIcons/sunCloud.ico" alt="">
                         </div>
-                        <div id="plitsTemperatureDay">20</div>
-                        <div id="plitsTemperatureNIght">7</div>
+                        <div id="plitsTemperatureMax3"></div>
+                        <div id="plitsTemperatureMin3"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div onclick="clickOnPlitsToLock(this.id)" id="plits6">
-                        <div>Sat</div>
-                        <div id="plitsWheaterStatus6">
-                            <img src="../web/images/statusIcons/sunCloud.ico" alt="">
+                        <div id="plitsDayName4"></div>
+                        <div >
+                            <img id="plitsWheaterStatus4" src="../web/images/statusIcons/sunCloud.ico" alt="">
                         </div>
-                        <div id="plitsTemperatureDay">20</div>
-                        <div id="plitsTemperatureNIght">7</div>
+                        <div id="plitsTemperatureMax4"></div>
+                        <div id="plitsTemperatureMin4"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div onclick="clickOnPlitsToLock(this.id)" id="plits7">
-                        <div>Sun</div>
-                        <div id="plitsWheaterStatus7">
-                            <img src="../web/images/statusIcons/sunCloud.ico" alt="">
+                        <div id="plitsDayName5"></div>
+                        <div >
+                            <img id="plitsWheaterStatus5" src="../web/images/statusIcons/sunCloud.ico" alt="">
                         </div>
-                        <div id="plitsTemperatureDay">20</div>
-                        <div id="plitsTemperatureNIght">7</div>
+                        <div id="plitsTemperatureMax5"></div>
+                        <div id="plitsTemperatureMin5"></div>
                     </div>
                 </div>
             </div>
@@ -149,37 +130,47 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="container   informationalPanel" id="informationalPanel">
             <div class="row">
                 <!--informationalPanel-->
-                <div class="col-md-3 col-lg-3" id="testid">
+                <div class="col-md-2 col-lg-2" id="nameOfDay">
                     111223
                 </div>
-                <div class="col-md-9 col-lg-9 timeCells row">
+                <div class="col-md-10 col-lg-10 timeCells row">
                     <div id="timeCell1" class="col">
                         <div>00:00</div>
                         <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
                         <div>temp=1</div>
                     </div>
                     <div id="timeCell2" class="col">
-                        <div>02:00</div>
+                        <div>03:00</div>
                         <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
                         <div>temp=1</div>
                     </div>
                     <div id="timeCell3" class="col">
-                        <div>04:00</div>
+                        <div>06:00</div>
                         <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
                         <div>temp=1</div>
                     </div>
                     <div id="timeCell4" class="col">
-                        <div>05:00</div>
+                        <div>09:00</div>
                         <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
                         <div>temp=1</div>
                     </div>
                     <div id="timeCell5" class="col">
-                        <div>08:00</div>
+                        <div>12:00</div>
                         <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
                         <div>temp=1</div>
                     </div>
                     <div id="timeCell6" class="col">
-                        <div>10:00</div>
+                        <div>15:00</div>
+                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
+                        <div>temp=1</div>
+                    </div>
+                    <div id="timeCell7" class="col">
+                        <div>18:00</div>
+                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
+                        <div>temp=1</div>
+                    </div>
+                    <div id="timeCell8" class="col">
+                        <div>21:00</div>
                         <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
                         <div>temp=1</div>
                     </div>
@@ -187,12 +178,12 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div class="row">
                 <!--informationalPanel-->
-                <div class="col-md-3 col-lg-3">
+                <div class="col-md-2 col-lg-2">
                     <div style="font-size:75%">Temperature</div>
                     <div style="font-size:75%">Wind</div>
                     <div style="font-size:75%">Precipitation</div>
                 </div>
-                <div class="col-md-9 col-lg-9 timeCells row">
+                <div class="col-md-10 col-lg-10 timeCells row">
                     <div id="timeCell1" class="col">
                         <div>00:00</div>
                         <div>data</div>
@@ -219,6 +210,16 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div>temp=1</div>
                     </div>
                     <div id="timeCell6" class="col">
+                        <div>10:00</div>
+                        <div></div>
+                        <div>temp=1</div>
+                    </div>
+                    <div id="timeCell7" class="col">
+                        <div>10:00</div>
+                        <div></div>
+                        <div>temp=1</div>
+                    </div>
+                    <div id="timeCell8" class="col">
                         <div>10:00</div>
                         <div></div>
                         <div>temp=1</div>
