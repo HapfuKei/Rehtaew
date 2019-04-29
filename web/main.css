@@ -95,6 +95,7 @@ input{
 .timeCells{
     font-size: 70%;
     text-align: center; 
+    opacity: 1;
 }
 .timeCells>div>div{
     text-align: center;
@@ -103,6 +104,17 @@ input{
     width: 80%;
     height: 80%;
 }
+.m-fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+  }
+  .m-fadeIn {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+  }
+
 /*--- ID ---*/
 #tempratureMain{
     font-size: 200%;

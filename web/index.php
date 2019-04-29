@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                 </div>
                 <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits5">
+                    <div onclick="clickOnPlitsToLock(this.id)" id="plits3">
                         <div id="plitsDayName3"></div>
                         <div >
                             <img id="plitsWheaterStatus3" src="../web/images/statusIcons/sunCloud.ico" alt="">
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                 </div>
                 <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits6">
+                    <div onclick="clickOnPlitsToLock(this.id)" id="plits4">
                         <div id="plitsDayName4"></div>
                         <div >
                             <img id="plitsWheaterStatus4" src="../web/images/statusIcons/sunCloud.ico" alt="">
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                 </div>
                 <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits7">
+                    <div onclick="clickOnPlitsToLock(this.id)" id="plits5">
                         <div id="plitsDayName5"></div>
                         <div >
                             <img id="plitsWheaterStatus5" src="../web/images/statusIcons/sunCloud.ico" alt="">
@@ -130,49 +130,39 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="container   informationalPanel" id="informationalPanel">
             <div class="row">
                 <!--informationalPanel-->
-                <div class="col-md-2 col-lg-2" id="nameOfDay">
-                    111223
-                </div>
+                <div class="col-md-2 col-lg-2" id="nameOfDay"></div>
                 <div class="col-md-10 col-lg-10 timeCells row">
-                    <div id="timeCell1" class="col">
-                        <div>00:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell1Time"></div>
+                        <div><img id="timeCell1statusImg" src="" alt=""></div>
                     </div>
-                    <div id="timeCell2" class="col">
-                        <div>03:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell2Time"></div>
+                        <div><img id="timeCell2statusImg" src="" alt=""></div>
                     </div>
-                    <div id="timeCell3" class="col">
-                        <div>06:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell3Time"></div>
+                        <div><img id="timeCell3statusImg" src="" alt=""></div>
                     </div>
-                    <div id="timeCell4" class="col">
-                        <div>09:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell4Time"></div>
+                        <div><img id="timeCell4statusImg" src="" alt=""></div>
                     </div>
-                    <div id="timeCell5" class="col">
-                        <div>12:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell5Time"></div>
+                        <div><img id="timeCell5statusImg" src="" alt=""></div>
                     </div>
-                    <div id="timeCell6" class="col">
-                        <div>15:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell6Time"></div>
+                        <div><img id="timeCell6statusImg" src="" alt=""></div>
                     </div>
-                    <div id="timeCell7" class="col">
-                        <div>18:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell7Time"></div>
+                        <div><img id="timeCell7statusImg" src="" alt=""></div>
                     </div>
-                    <div id="timeCell8" class="col">
-                        <div>21:00</div>
-                        <div><img src="../web/images/statusIcons/cloud.ico" alt=""></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell8Time"></div>
+                        <div><img id="timeCell8statusImg" src="" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -184,45 +174,45 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div style="font-size:75%">Precipitation</div>
                 </div>
                 <div class="col-md-10 col-lg-10 timeCells row">
-                    <div id="timeCell1" class="col">
-                        <div>00:00</div>
-                        <div>data</div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell1Temperature" ></div>
+                        <div id="timeCell1WindDerrection"></div>
+                        <div id="timeCell1Precipitation"></div>
                     </div>
-                    <div id="timeCell2" class="col">
-                        <div>02:00</div>
-                        <div></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell2Temperature"></div>
+                        <div id="timeCell2WindDerrection"></div>
+                        <div id="timeCell2Precipitation"></div>
                     </div>
-                    <div id="timeCell3" class="col">
-                        <div>04:00</div>
-                        <div></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell3Temperature"></div>
+                        <div id="timeCell3WindDerrection"></div>
+                        <div id="timeCell3Precipitation"></div>
                     </div>
-                    <div id="timeCell4" class="col">
-                        <div>05:00</div>
-                        <div></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell4Temperature"></div>
+                        <div id="timeCell4WindDerrection"></div>
+                        <div id="timeCell4Precipitation"></div>
                     </div>
-                    <div id="timeCell5" class="col">
-                        <div>08:00</div>
-                        <div></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell5Temperature"></div>
+                        <div id="timeCell5WindDerrection"></div>
+                        <div id="timeCell5Precipitation"></div>
                     </div>
-                    <div id="timeCell6" class="col">
-                        <div>10:00</div>
-                        <div></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell6Temperature"></div>
+                        <div id="timeCell6WindDerrection"></div>
+                        <div id="timeCell6Precipitation"></div>
                     </div>
-                    <div id="timeCell7" class="col">
-                        <div>10:00</div>
-                        <div></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell7Temperature"></div>
+                        <div id="timeCell7WindDerrection"></div>
+                        <div id="timeCell7Precipitation"></div>
                     </div>
-                    <div id="timeCell8" class="col">
-                        <div>10:00</div>
-                        <div></div>
-                        <div>temp=1</div>
+                    <div class="col">
+                        <div id="timeCell8Temperature"></div>
+                        <div id="timeCell8WindDerrection"></div>
+                        <div id="timeCell8Precipitation"></div>
                     </div>
                 </div>
             </div>
