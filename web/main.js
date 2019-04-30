@@ -7,6 +7,7 @@ function clickOnPlitsToLock(id) {
 
   var plitNimber = id.substring(5, 6) - 1;
   setupTimePlits(plitNimber * 8)
+
   document.getElementById(lastID).classList.remove("plitsLock");
   document.getElementById(id).classList.toggle("plitsLock");
   lastID = id;
@@ -67,25 +68,69 @@ function getWindDerrection(degrees) {
   if ((degrees > 337.5)) { return "NNW" };
 }
 
-function typeWriter(id,text) {
-  var i=0;
-  console.log(text);
-  document.getElementById(id).innerHTML = "";
-  if (i < text.length) {
-    document.getElementById(id).innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 50);
+function timePlitsAnnimationFadeOutAdd(startIndex) {
+  document.getElementById("nameOfDay").classList.add("m-fadeOut");
+  idItter = 1;
+  for (i = startIndex; i < 8 + startIndex; i++) {
+    document.getElementById("timeCell" + (idItter) + "Time").classList.add("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "statusImg").classList.add("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "Temperature").classList.add("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "WindDerrection").classList.add("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "Precipitation").classList.add("m-fadeOut");
+    idItter++;
+  }
+}
+
+function timePlitsAnnimationFadeOutRemove(startIndex) {
+  document.getElementById("nameOfDay").classList.remove("m-fadeOut");
+  idItter = 1;
+  for (i = startIndex; i < 8 + startIndex; i++) {
+    document.getElementById("timeCell" + (idItter) + "Time").classList.remove("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "statusImg").classList.remove("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "Temperature").classList.remove("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "WindDerrection").classList.remove("m-fadeOut");
+    document.getElementById("timeCell" + (idItter) + "Precipitation").classList.remove("m-fadeOut");
+    idItter++;
+  }
+}
+
+function timePlitsAnnimationFadeInAdd(startIndex) {
+  document.getElementById("nameOfDay").classList.add("m-fadeIn");
+  idItter = 1;
+  for (i = startIndex; i < 8 + startIndex; i++) {
+    document.getElementById("timeCell" + (idItter) + "Time").classList.add("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "statusImg").classList.add("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "Temperature").classList.add("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "WindDerrection").classList.add("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "Precipitation").classList.add("m-fadeIn");
+    idItter++;
+  }
+}
+
+function timePlitsAnnimationFadeInRemove(startIndex) {
+  document.getElementById("nameOfDay").classList.remove("m-fadeIn");
+  idItter = 1;
+  for (i = startIndex; i < 8 + startIndex; i++) {
+    document.getElementById("timeCell" + (idItter) + "Time").classList.remove("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "statusImg").classList.remove("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "Temperature").classList.remove("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "WindDerrection").classList.remove("m-fadeIn");
+    document.getElementById("timeCell" + (idItter) + "Precipitation").classList.remove("m-fadeIn");
+    idItter++;
   }
 }
 
 function setupTimePlits(startIndex) {
+  timePlitsAnnimationFadeInRemove(startIndex);
+  timePlitsAnnimationFadeOutAdd(startIndex);
+
   document.getElementById("nameOfDay").innerHTML = days[getDataTime(object.list[startIndex].dt).getDay()];
+  
   idItter = 1;
   for (i = startIndex; i < 8 + startIndex; i++) {
     //setup data
-    //typeWriter("timeCell" + (idItter) + "Time",(getDataTime(object.list[i].dt).getHours() + ":00"));
-   // document.getElementById("timeCell" + (idItter) + "Time").innerHTML = getDataTime(object.list[i].dt).getHours() + ":00";
-    document.getElementById("timeCell" + (idItter) + "statusImg").src = "http://openweathermap.org/img/w/" + object.list[i].weather[0].icon + ".png";
+    document.getElementById("timeCell" + (idItter) + "Time").innerHTML = getDataTime(object.list[i].dt).getHours() + ":00";
+    document.getElementById("timeCell" + (idItter) + "statusImg").src = "../web/images/statusIcons/" + object.list[i].weather[0].icon + ".png";
     document.getElementById("timeCell" + (idItter) + "Temperature").innerHTML = object.list[i].main.temp + degreeSymbol;
     document.getElementById("timeCell" + (idItter) + "WindDerrection").innerHTML = getWindDerrection(object.list[i].wind.deg);
     if (object.list[i].rain !== undefined) {
@@ -97,6 +142,11 @@ function setupTimePlits(startIndex) {
     }
     idItter++;
   }
+  setTimeout(function() {
+    timePlitsAnnimationFadeOutRemove(startIndex);
+    timePlitsAnnimationFadeInAdd(startIndex);
+    }, 300);
+  
 }
 
 function onLoadPage() {
@@ -140,9 +190,5 @@ function onLoadPage() {
 
   //setup time cells time value
   setupTimePlits(0);
-
-}
-
-function updateData() {
-  document.getElementById("tempratureMain").innerHTML += object.list[0].main.temp; //temperatura sejchas7io
-}
+  idItter = 1;
+} 

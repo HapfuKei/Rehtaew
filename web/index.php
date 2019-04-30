@@ -33,8 +33,10 @@
 
 <?php
 $apiKey = "105aa35c4d473a05d3297b2d972dc497";
-$cityId = "Daugavpils,lv";
-$googleApiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" . $cityId . "&lang=en&units=metric&appid=" . $apiKey;//."&callback=obj"
+$cityName = "Daugavpils,lv";
+//$cityName =  $_GET["city"];
+$googleApiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" . $cityName . "&lang=en&units=metric&appid=" . $apiKey;//."&callback=obj"
+
 
 $ch = curl_init();
 
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="container">
         <div class="searchTable">
             <!-- select city-->
-            <input type="text" id="cityInputBox">
+            <input type="text" id="cityInputBox" name="city" value="Daugavpils,lv" method="get">
             <span class="glyphicon glyphicon-search"></span>
         </div>
         <div class="row">
