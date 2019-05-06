@@ -3,6 +3,31 @@ var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
 var shorDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 var celsiusSymbol = " &#8451";
 var degreeSymbol = " &#176";
+
+
+//////////////
+
+
+function getDataFormServer(cityName) {
+  console.log("2");
+$.ajax({
+    url: "wheatherHook.php",
+    type: "POST",
+    async: false,
+    dataType: "json",
+    data:{cityName:cityName},
+    success: function(result) {
+        console.log("transmission succes");
+        object=result;
+    },
+    error: function(log) {
+      console.log("transmission failed:"+log);
+      alert("Get data form server error");
+    }
+});
+console.log("3");
+}
+
 function clickOnPlitsToLock(id) {
 
   var plitNimber = id.substring(5, 6) - 1;
@@ -149,13 +174,15 @@ function setupTimePlits(startIndex) {
   
 }
 
-function onLoadPage() {
+function onLoadPage(cityName) {
+  console.log("1");
+  getDataFormServer(cityName);
   //set names of days
-  document.getElementById("plitsDayName1").innerHTML += shorDays[getDataTime(object.list[0].dt).getDay()];
-  document.getElementById("plitsDayName2").innerHTML += shorDays[getDataTime(object.list[8].dt).getDay()];
-  document.getElementById("plitsDayName3").innerHTML += shorDays[getDataTime(object.list[16].dt).getDay()];
-  document.getElementById("plitsDayName4").innerHTML += shorDays[getDataTime(object.list[24].dt).getDay()];
-  document.getElementById("plitsDayName5").innerHTML += shorDays[getDataTime(object.list[32].dt).getDay()];
+  document.getElementById("plitsDayName1").innerHTML = shorDays[getDataTime(object.list[0].dt).getDay()];
+  document.getElementById("plitsDayName2").innerHTML = shorDays[getDataTime(object.list[8].dt).getDay()];
+  document.getElementById("plitsDayName3").innerHTML = shorDays[getDataTime(object.list[16].dt).getDay()];
+  document.getElementById("plitsDayName4").innerHTML = shorDays[getDataTime(object.list[24].dt).getDay()];
+  document.getElementById("plitsDayName5").innerHTML = shorDays[getDataTime(object.list[32].dt).getDay()];
 
   //set icons by hightnoone
   plitsItter = 1;
@@ -179,8 +206,8 @@ function onLoadPage() {
       if (object.list[i].main.temp_min < minTemp) { minTemp = object.list[i].main.temp_min; }
     }
     if ((currentDay != prevDay) || (i == 39) && (plitsItter != 6)) { //fix
-      document.getElementById("plitsTemperatureMax" + plitsItter).innerHTML += maxTemp + celsiusSymbol;
-      document.getElementById("plitsTemperatureMin" + plitsItter).innerHTML += minTemp + celsiusSymbol;
+      document.getElementById("plitsTemperatureMax" + plitsItter).innerHTML = maxTemp + celsiusSymbol;
+      document.getElementById("plitsTemperatureMin" + plitsItter).innerHTML = minTemp + celsiusSymbol;
       plitsItter++;
       maxTemp = -999;
       minTemp = 999;

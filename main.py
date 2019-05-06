@@ -23,9 +23,5 @@ for i in range(0, data.shape[0] - 1):
         data.loc[i, "PrevTemp"] = 0
 data.loc[data.shape[0] - 1, "PrevTemp"] = round(data.loc[data.shape[0] - 1, "PrevTemp"])
 
-
-
-
-
 print(data)
 print("DONE")

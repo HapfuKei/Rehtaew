@@ -1,5 +1,6 @@
 body {
-    background-image: url("../web/images/background.jpg");  
+    /* background-image: url("../web/images/background.jpg");   */
+    background-color: #EBEDEE;
     font-family: 'Lato', 'sans-serif' !important;
     -webkit-font-smoothing: subpixel-antialiased;
     width: 100%;
@@ -8,7 +9,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 35px;
-    color: white;
+    /* color: white; */
 }
 input{
     color: black;
@@ -25,12 +26,9 @@ input{
     font-size: 50px;
     
 }
-#mainDescription{
-
-}
 /*--- Plits ---*/
 .plitsLock{
-    border: 5px solid white !important;
+    border: 5px solid gray !important;
     border-bottom: none !important;
     border-radius: 20px;
     border-bottom-left-radius: 0;
@@ -62,14 +60,14 @@ input{
 }
 /*--- informationalPanel ---*/
 .informationalPanel{
-    border: 5px solid white;
+    border: 5px solid gray;
     border-radius: 20px;
     margin-left: 0;
     margin-right: 0;
 
 }
 .informationalPanelRightUp{
-    border: 5px solid white;
+    border: 5px solid gray;
     border-radius: 20px;
     border-top-right-radius: 0;
     margin-left: 0;
@@ -77,14 +75,14 @@ input{
     transition: 0.4s;
 }
 .informationalPanelDown{
-    border: 5px solid white;
+    border: 5px solid gray;
     border-radius: 20px;
     margin-left: 0;
     margin-right: 0;
     transition: 0.7s;
 }
 .informationalPanelLeftUp{
-    border: 5px solid white;
+    border: 5px solid gray;
     border-radius: 20px;
     border-top-left-radius: 0;
     margin-left: 0;
@@ -104,15 +102,16 @@ input{
     width: 80%;
     height: 80%;
 }
+/*--- animations --- */
 .m-fadeOut {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms;
+    transition: visibility 0s linear 0ms, opacity 200ms;
   }
   .m-fadeIn {
     visibility: visible;
     opacity: 1;
-    transition: visibility 0s linear 0s, opacity 300ms;
+    transition: visibility 0s linear 0s, opacity 200ms;
   }
 
 /*--- ID ---*/
