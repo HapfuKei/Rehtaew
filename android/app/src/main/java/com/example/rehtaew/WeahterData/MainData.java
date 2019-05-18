@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import lombok.Getter;
 
 @Getter
-final class MainData{
+public final class MainData {
     private double temp;
     private double tempMax;
     private double tempMin;

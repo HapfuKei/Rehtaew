@@ -23,12 +23,12 @@ public class WeatherHourData {
         this.weather = new WeatherData(jsonObject.getJSONArray("weather"));
         this.clouds = jsonObject.getJSONObject("clouds").getDouble("all");
         this.wind = new WindData(jsonObject.getJSONObject("wind"));
-        if (jsonObject.has("rain")) {
+        if (jsonObject.has("rain")&&!jsonObject.getJSONObject("rain").isNull("3h")) {
             this.rain = jsonObject.getJSONObject("rain").getDouble("3h");
         } else {
             rain = -1;
         }
-        if (jsonObject.has("snow")) {
+        if (jsonObject.has("snow")&&!jsonObject.getJSONObject("snow").isNull("3h")) {
             this.rain = jsonObject.getJSONObject("snow").getDouble("3h");
         } else {
             snow = -1;
