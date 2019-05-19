@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.Gravity;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,16 +29,10 @@ class WeatherDataManager {
 
     LinearLayout hourTimeLine;
     private List<WeatherHourData> weatherHourData;
-    private View view;
 
-    WeatherDataManager(Context context, String cityName, View view, LinearLayout hourTimeLine) {
+    WeatherDataManager(Context context, String cityName, LinearLayout hourTimeLine) {
         this.hourTimeLine = hourTimeLine;
-        this.view = view;
         getJsonDataFromServer(context, cityName);
-    }
-
-    List<WeatherHourData> getWeatherHourData() {
-        return weatherHourData;
     }
 
     void getJsonDataFromServer(final Context context, String cityName) {
@@ -85,41 +79,104 @@ class WeatherDataManager {
         requestQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<JSONObject>() {
             @Override
             public void onRequestFinished(Request<JSONObject> request) {
-                drawElements(view);
+                drawElements();
                 progress.dismiss();
             }
         });
     }
 
-    private void drawElements(View view) {
+    private void drawElements() {
         for (int i = 0; i < weatherHourData.size(); i++) {
             WeatherHourData data = weatherHourData.get(i);
             Calendar cal = Calendar.getInstance();
             cal.setTime(data.getTime());
             String time = String.valueOf(cal.get(Calendar.HOUR_OF_DAY));
             String temperature = String.valueOf(data.getMain().getTemp());
-            hourTimeLine.addView(createCell(time,temperature));
+            String imgId = data.getWeather().getIconId();
+            hourTimeLine.addView(createCell(time, temperature, imgId));
         }
     }
 
     @SuppressLint("SetTextI18n")
-    private LinearLayout createCell(String hourTimeText, String hourTempText) {
+    private LinearLayout createCell(String hourTimeText, String hourTempText, String imgId) {
         LinearLayout linearLayout = new LinearLayout(hourTimeLine.getContext());
         TextView hourTime = new TextView(linearLayout.getContext());
         TextView hourTemp = new TextView(linearLayout.getContext());
+        ImageView weatherStatusImg = new ImageView(hourTimeLine.getContext());
+        switch (imgId) {
+            case "01d":
+                weatherStatusImg.setImageResource(R.drawable.img01d);
+                break;
+            case "01n":
+                weatherStatusImg.setImageResource(R.drawable.img01n);
+                break;
+            case "02d":
+                weatherStatusImg.setImageResource(R.drawable.img02d);
+                break;
+            case "02n":
+                weatherStatusImg.setImageResource(R.drawable.img02n);
+                break;
+            case "03d":
+                weatherStatusImg.setImageResource(R.drawable.img03d);
+                break;
+            case "03n":
+                weatherStatusImg.setImageResource(R.drawable.img03n);
+                break;
+            case "04d":
+                weatherStatusImg.setImageResource(R.drawable.img04d);
+                break;
+            case "04n":
+                weatherStatusImg.setImageResource(R.drawable.img04n);
+                break;
+            case "09d":
+                weatherStatusImg.setImageResource(R.drawable.img09d);
+                break;
+            case "09n":
+                weatherStatusImg.setImageResource(R.drawable.img09n);
+                break;
+            case "10d":
+                weatherStatusImg.setImageResource(R.drawable.img10d);
+                break;
+            case "10n":
+                weatherStatusImg.setImageResource(R.drawable.img10n);
+                break;
+            case "11d":
+                weatherStatusImg.setImageResource(R.drawable.img11d);
+                break;
+            case "11n":
+                weatherStatusImg.setImageResource(R.drawable.img11n);
+                break;
+            case "13d":
+                weatherStatusImg.setImageResource(R.drawable.img13d);
+                break;
+            case "13n":
+                weatherStatusImg.setImageResource(R.drawable.img13n);
+                break;
+            case "50d":
+                weatherStatusImg.setImageResource(R.drawable.img50d);
+                break;
+            case "50n":
+                weatherStatusImg.setImageResource(R.drawable.img50n);
+                break;
+        }
+
+
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(150,200));
+
+        linearLayout.setPadding(25, 30, 25, 30);
         linearLayout.setGravity(Gravity.CENTER_VERTICAL);
 
-
-        hourTime.setText(hourTimeText+":00");
-        hourTemp.setText(hourTempText+"\u2109");
+        hourTime.setText(hourTimeText + ":00");
+        hourTemp.setText(hourTempText + "\u2103");
 
         hourTemp.setTextColor(Color.WHITE);
         hourTime.setTextColor(Color.WHITE);
+        hourTemp.setGravity(Gravity.CENTER);
+        hourTime.setGravity(Gravity.CENTER);
 
-        linearLayout.addView(hourTemp);
         linearLayout.addView(hourTime);
+        linearLayout.addView(weatherStatusImg);
+        linearLayout.addView(hourTemp);
         return linearLayout;
     }
 }

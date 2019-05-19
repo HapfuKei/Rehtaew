@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import lombok.Getter;
 
 @Getter
-final class WeatherData {
+public final class WeatherData {
     private int id;
     private String main;
     private String description;
