@@ -27,17 +27,27 @@ import java.util.List;
 
 class WeatherDataManager {
 
-    LinearLayout hourTimeLine;
+    private final ProgressDialog progress;
+    private LinearLayout hourTimeLine;
+    private LinearLayout dailyTimeLine;
     private List<WeatherHourData> weatherHourData;
 
-    WeatherDataManager(Context context, String cityName, LinearLayout hourTimeLine) {
+    WeatherDataManager(Context context, String cityName, LinearLayout hourTimeLine,LinearLayout dailyTimeLine) {
         this.hourTimeLine = hourTimeLine;
-        getJsonDataFromServer(context, cityName);
+        this.dailyTimeLine=dailyTimeLine;
+        progress = new ProgressDialog(context);
+        getJsonDataFromServer(context, cityName).addRequestFinishedListener(new RequestQueue.RequestFinishedListener<JSONObject>() {
+            @Override
+            public void onRequestFinished(Request<JSONObject> request) {
+                drawElementsForHourTimeLine();
+                drawElementsForDailyLine();
+            }
+        });
+        progress.dismiss();
     }
 
-    void getJsonDataFromServer(final Context context, String cityName) {
+    private RequestQueue getJsonDataFromServer(final Context context, String cityName) {
 
-        final ProgressDialog progress = new ProgressDialog(context);
         progress.setTitle("Loading");
         progress.setMessage("Please, wait getting data from server");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
@@ -76,33 +86,21 @@ class WeatherDataManager {
             }
         });
         requestQueue.add(request);
-        requestQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<JSONObject>() {
-            @Override
-            public void onRequestFinished(Request<JSONObject> request) {
-                drawElements();
-                progress.dismiss();
-            }
-        });
+        return requestQueue;
     }
 
-    private void drawElements() {
+    private void drawElementsForHourTimeLine() {
         for (int i = 0; i < weatherHourData.size(); i++) {
             WeatherHourData data = weatherHourData.get(i);
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(data.getTime());
-            String time = String.valueOf(cal.get(Calendar.HOUR_OF_DAY));
+            String time = String.valueOf(data.getTime().get(Calendar.HOUR_OF_DAY));
             String temperature = String.valueOf(data.getMain().getTemp());
             String imgId = data.getWeather().getIconId();
-            hourTimeLine.addView(createCell(time, temperature, imgId));
+            hourTimeLine.addView(createCellForHourTimeLine(time, temperature, imgId));
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private LinearLayout createCell(String hourTimeText, String hourTempText, String imgId) {
-        LinearLayout linearLayout = new LinearLayout(hourTimeLine.getContext());
-        TextView hourTime = new TextView(linearLayout.getContext());
-        TextView hourTemp = new TextView(linearLayout.getContext());
-        ImageView weatherStatusImg = new ImageView(hourTimeLine.getContext());
+    private ImageView getIconFromIconId(Context context, String imgId){
+        ImageView weatherStatusImg = new ImageView(context);
         switch (imgId) {
             case "01d":
                 weatherStatusImg.setImageResource(R.drawable.img01d);
@@ -159,7 +157,14 @@ class WeatherDataManager {
                 weatherStatusImg.setImageResource(R.drawable.img50n);
                 break;
         }
+        return weatherStatusImg;
+    }
 
+    @SuppressLint("SetTextI18n")
+    private LinearLayout createCellForHourTimeLine(String hourTimeText, String hourTempText, String imgId) {
+        LinearLayout linearLayout = new LinearLayout(hourTimeLine.getContext());
+        TextView hourTime = new TextView(linearLayout.getContext());
+        TextView hourTemp = new TextView(linearLayout.getContext());
 
         linearLayout.setOrientation(LinearLayout.VERTICAL);
 
@@ -175,8 +180,55 @@ class WeatherDataManager {
         hourTime.setGravity(Gravity.CENTER);
 
         linearLayout.addView(hourTime);
-        linearLayout.addView(weatherStatusImg);
+        linearLayout.addView(getIconFromIconId(hourTimeLine.getContext(),imgId));
         linearLayout.addView(hourTemp);
+        return linearLayout;
+    }
+
+    private void drawElementsForDailyLine(){
+        int  prevDay=weatherHourData.get(0).getTime().get(Calendar.DAY_OF_WEEK);
+        double minTemperature = 9999;
+        double maxTemperature = -9999;
+        for (int i=0;i<weatherHourData.size();i++){
+            WeatherHourData data=weatherHourData.get(i);
+            int currentDay = data.getTime().get(Calendar.DAY_OF_WEEK);
+            if (currentDay==prevDay){
+                if (maxTemperature<data.getMain().getTempMax()){
+                    maxTemperature=data.getMain().getTempMax();
+                }
+                if (minTemperature>data.getMain().getTempMin()){
+                    minTemperature=data.getMain().getTempMin();
+                }
+            }
+            String iconId = data.getWeather().getIconId();
+            if (currentDay!=prevDay){
+                dailyTimeLine.addView(createDailyCell(dailyTimeLine.getContext(),dayName.values()[prevDay],iconId,maxTemperature,minTemperature));
+            }
+           prevDay=currentDay;
+        }
+    }
+
+    private enum dayName{Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday};
+
+
+
+    private LinearLayout createDailyCell(Context context,dayName dayName,String iconId,double maxTemperature,double minTemperature){
+        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        TextView day=new TextView(context);
+        TextView minTempView=new TextView(context);
+        TextView maxTempView=new TextView(context);
+
+        day.setText(dayName.toString());
+        minTempView.setText(String.valueOf(minTemperature));
+        maxTempView.setText(String.valueOf(maxTemperature));
+
+        linearLayout.addView(day);
+        linearLayout.addView(maxTempView);
+        linearLayout.addView(minTempView);
+        linearLayout.addView(getIconFromIconId(context,iconId));
+
+        linearLayout.setGravity(Gravity.CENTER_HORIZONTAL);
         return linearLayout;
     }
 }

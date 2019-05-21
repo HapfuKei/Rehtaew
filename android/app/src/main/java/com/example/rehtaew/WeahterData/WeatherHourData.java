@@ -3,6 +3,7 @@ package com.example.rehtaew.WeahterData;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class WeatherHourData {
     private MainData main;
-    private Date time;
+    private Calendar time;
     private WeatherData weather;
     private double clouds;
     private WindData wind;
@@ -19,7 +20,8 @@ public class WeatherHourData {
 
     public WeatherHourData(JSONObject jsonObject) throws JSONException {
         this.main = new MainData(jsonObject.getJSONObject("main"));
-        this.time = new Date(Long.parseLong(jsonObject.getString("dt")) * 1000L);
+        this.time = Calendar.getInstance();
+        time.setTimeInMillis(Long.parseLong(jsonObject.getString("dt")) * 1000L);
         this.weather = new WeatherData(jsonObject.getJSONArray("weather"));
         this.clouds = jsonObject.getJSONObject("clouds").getDouble("all");
         this.wind = new WindData(jsonObject.getJSONObject("wind"));

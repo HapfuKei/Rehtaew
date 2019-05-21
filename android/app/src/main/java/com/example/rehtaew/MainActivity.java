@@ -8,7 +8,6 @@ public class MainActivity extends AppCompatActivity {
 
     MainActivity mainActivity;
       // This is our requests queue to process our HTTP requests.
-    LinearLayout hourTimeLine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainActivity= this;
 
-        hourTimeLine = findViewById(R.id.hourTimeLine);
-        WeatherDataManager weatherDataManager = new WeatherDataManager(this,"Daugavpils,lv",hourTimeLine);;
+        LinearLayout hourTimeLine = findViewById(R.id.hourTimeLine);
+        LinearLayout dailyTimeLine = findViewById(R.id.dailyTimeLine);
+        WeatherDataManager weatherDataManager = new WeatherDataManager(this,"Daugavpils,lv",hourTimeLine,dailyTimeLine);
     }
 }
