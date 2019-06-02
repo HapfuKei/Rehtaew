@@ -28,6 +28,13 @@
     <script type="text/javascript" src="main.js"></script>
 
 </head>
+<header>
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'mainTab')">Main</button>
+        <button class="tablinks" onclick="openTab(event, 'modelTab')">Test Machine lernign</button>
+    </div>
+</header>
 
 <body>
     <script type="text/javascript">
@@ -38,164 +45,331 @@
 
     </script>
 
-    <div id="trash"></div>
-    <header></header>
-    <!--site header -->
-    <div class="container">
-        <div class="searchTable">
-            <!-- select city-->
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <button onclick="onLoadPage(document.getElementById('cityInputBox').value)" class="btn btn-outline-secondary" type="button">Search</button>
-                </div>
-                <input type="search" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="cityInputBox" name="cityName">
-            </div>
-        </div>
+    <div id="mainTab" class="tabcontent">
+        <div id="trash"></div>
+        <header></header>
+        <!--site header -->
         <div class="container">
-            <div class="row plits">
-                <!-- main plist-->
-                <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits1">
-                        <div id="plitsDayName1"></div>
-                        <div>
-                            <img id="plitsWheaterStatus1" src="../web/images/statusIcons/sunCloud.ico" alt="">
+            <div class="searchTable">
+                <!-- select city-->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button onclick="onLoadPage(document.getElementById('cityInputBox').value)"
+                            class="btn btn-outline-secondary" type="button">Search</button>
+                    </div>
+                    <input type="search" class="form-control" placeholder="" aria-label=""
+                        aria-describedby="basic-addon1" id="cityInputBox" name="cityName">
+                </div>
+            </div>
+            <div class="container">
+                <div class="row plits">
+                    <!-- main plist-->
+                    <div class="col">
+                        <div onclick="clickOnPlitsToLock(this.id)" id="plits1">
+                            <div id="plitsDayName1"></div>
+                            <div>
+                                <img id="plitsWheaterStatus1" src="../web/images/statusIcons/sunCloud.ico" alt="">
+                            </div>
+                            <div id="plitsTemperatureMax1"></div>
+                            <div id="plitsTemperatureMin1"></div>
                         </div>
-                        <div id="plitsTemperatureMax1"></div>
-                        <div id="plitsTemperatureMin1"></div>
+                    </div>
+                    <div class="col">
+                        <div onclick="clickOnPlitsToLock(this.id)" id="plits2">
+                            <div id="plitsDayName2"></div>
+                            <div>
+                                <img id="plitsWheaterStatus2" src="../web/images/statusIcons/sunCloud.ico" alt="">
+                            </div>
+                            <div id="plitsTemperatureMax2"></div>
+                            <div id="plitsTemperatureMin2"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div onclick="clickOnPlitsToLock(this.id)" id="plits3">
+                            <div id="plitsDayName3"></div>
+                            <div>
+                                <img id="plitsWheaterStatus3" src="../web/images/statusIcons/sunCloud.ico" alt="">
+                            </div>
+                            <div id="plitsTemperatureMax3"></div>
+                            <div id="plitsTemperatureMin3"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div onclick="clickOnPlitsToLock(this.id)" id="plits4">
+                            <div id="plitsDayName4"></div>
+                            <div>
+                                <img id="plitsWheaterStatus4" src="../web/images/statusIcons/sunCloud.ico" alt="">
+                            </div>
+                            <div id="plitsTemperatureMax4"></div>
+                            <div id="plitsTemperatureMin4"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div onclick="clickOnPlitsToLock(this.id)" id="plits5">
+                            <div id="plitsDayName5"></div>
+                            <div>
+                                <img id="plitsWheaterStatus5" src="../web/images/statusIcons/sunCloud.ico" alt="">
+                            </div>
+                            <div id="plitsTemperatureMax5"></div>
+                            <div id="plitsTemperatureMin5"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits2">
-                        <div id="plitsDayName2"></div>
-                        <div>
-                            <img id="plitsWheaterStatus2" src="../web/images/statusIcons/sunCloud.ico" alt="">
+            </div>
+            <div class="container   informationalPanel" id="informationalPanel">
+                <div class="row">
+                    <!--informationalPanel-->
+                    <div class="col-md-2 col-lg-2" id="nameOfDay"></div>
+                    <div class="col-md-10 col-lg-10 timeCells row">
+                        <div class="col">
+                            <div id="timeCell1Time"></div>
+                            <div><img id="timeCell1statusImg" src="" alt=""></div>
                         </div>
-                        <div id="plitsTemperatureMax2"></div>
-                        <div id="plitsTemperatureMin2"></div>
+                        <div class="col">
+                            <div id="timeCell2Time"></div>
+                            <div><img id="timeCell2statusImg" src="" alt=""></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell3Time"></div>
+                            <div><img id="timeCell3statusImg" src="" alt=""></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell4Time"></div>
+                            <div><img id="timeCell4statusImg" src="" alt=""></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell5Time"></div>
+                            <div><img id="timeCell5statusImg" src="" alt=""></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell6Time"></div>
+                            <div><img id="timeCell6statusImg" src="" alt=""></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell7Time"></div>
+                            <div><img id="timeCell7statusImg" src="" alt=""></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell8Time"></div>
+                            <div><img id="timeCell8statusImg" src="" alt=""></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits3">
-                        <div id="plitsDayName3"></div>
-                        <div>
-                            <img id="plitsWheaterStatus3" src="../web/images/statusIcons/sunCloud.ico" alt="">
-                        </div>
-                        <div id="plitsTemperatureMax3"></div>
-                        <div id="plitsTemperatureMin3"></div>
+                <div class="row">
+                    <!--informationalPanel-->
+                    <div class="col-md-2 col-lg-2">
+                        <div style="font-size:75%">Temperature</div>
+                        <div style="font-size:75%">Wind</div>
+                        <div style="font-size:75%">Precipitation</div>
                     </div>
-                </div>
-                <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits4">
-                        <div id="plitsDayName4"></div>
-                        <div>
-                            <img id="plitsWheaterStatus4" src="../web/images/statusIcons/sunCloud.ico" alt="">
+                    <div class="col-md-10 col-lg-10 timeCells row">
+                        <div class="col">
+                            <div id="timeCell1Temperature"></div>
+                            <div id="timeCell1WindDerrection"></div>
+                            <div id="timeCell1Precipitation"></div>
                         </div>
-                        <div id="plitsTemperatureMax4"></div>
-                        <div id="plitsTemperatureMin4"></div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div onclick="clickOnPlitsToLock(this.id)" id="plits5">
-                        <div id="plitsDayName5"></div>
-                        <div>
-                            <img id="plitsWheaterStatus5" src="../web/images/statusIcons/sunCloud.ico" alt="">
+                        <div class="col">
+                            <div id="timeCell2Temperature"></div>
+                            <div id="timeCell2WindDerrection"></div>
+                            <div id="timeCell2Precipitation"></div>
                         </div>
-                        <div id="plitsTemperatureMax5"></div>
-                        <div id="plitsTemperatureMin5"></div>
+                        <div class="col">
+                            <div id="timeCell3Temperature"></div>
+                            <div id="timeCell3WindDerrection"></div>
+                            <div id="timeCell3Precipitation"></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell4Temperature"></div>
+                            <div id="timeCell4WindDerrection"></div>
+                            <div id="timeCell4Precipitation"></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell5Temperature"></div>
+                            <div id="timeCell5WindDerrection"></div>
+                            <div id="timeCell5Precipitation"></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell6Temperature"></div>
+                            <div id="timeCell6WindDerrection"></div>
+                            <div id="timeCell6Precipitation"></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell7Temperature"></div>
+                            <div id="timeCell7WindDerrection"></div>
+                            <div id="timeCell7Precipitation"></div>
+                        </div>
+                        <div class="col">
+                            <div id="timeCell8Temperature"></div>
+                            <div id="timeCell8WindDerrection"></div>
+                            <div id="timeCell8Precipitation"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container   informationalPanel" id="informationalPanel">
+    </div>
+    <div id="modelTab" class="tabcontent modelDataInputs">
+        <form>
             <div class="row">
-                <!--informationalPanel-->
-                <div class="col-md-2 col-lg-2" id="nameOfDay"></div>
-                <div class="col-md-10 col-lg-10 timeCells row">
-                    <div class="col">
-                        <div id="timeCell1Time"></div>
-                        <div><img id="timeCell1statusImg" src="" alt=""></div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Year:</label>
+                        <input type="text" class="form-control" id="Year">
                     </div>
-                    <div class="col">
-                        <div id="timeCell2Time"></div>
-                        <div><img id="timeCell2statusImg" src="" alt=""></div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Month:</label>
+                        <input type="text" class="form-control" id="Month">
                     </div>
-                    <div class="col">
-                        <div id="timeCell3Time"></div>
-                        <div><img id="timeCell3statusImg" src="" alt=""></div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Day:</label>
+                        <input type="text" class="form-control" id="Day">
                     </div>
-                    <div class="col">
-                        <div id="timeCell4Time"></div>
-                        <div><img id="timeCell4statusImg" src="" alt=""></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell5Time"></div>
-                        <div><img id="timeCell5statusImg" src="" alt=""></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell6Time"></div>
-                        <div><img id="timeCell6statusImg" src="" alt=""></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell7Time"></div>
-                        <div><img id="timeCell7statusImg" src="" alt=""></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell8Time"></div>
-                        <div><img id="timeCell8statusImg" src="" alt=""></div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Hour:</label>
+                        <input type="text" class="form-control" id="Hour">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <!--informationalPanel-->
-                <div class="col-md-2 col-lg-2">
-                    <div style="font-size:75%">Temperature</div>
-                    <div style="font-size:75%">Wind</div>
-                    <div style="font-size:75%">Precipitation</div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Temperature:</label>
+                        <input type="text" class="form-control" id="Temperature">
+                    </div>
                 </div>
-                <div class="col-md-10 col-lg-10 timeCells row">
-                    <div class="col">
-                        <div id="timeCell1Temperature"></div>
-                        <div id="timeCell1WindDerrection"></div>
-                        <div id="timeCell1Precipitation"></div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Relative Humidity:</label>
+                        <input type="text" class="form-control" id="Relative_Humidity">
                     </div>
-                    <div class="col">
-                        <div id="timeCell2Temperature"></div>
-                        <div id="timeCell2WindDerrection"></div>
-                        <div id="timeCell2Precipitation"></div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Sea Level Pressure:</label>
+                        <input type="text" class="form-control" id="Sea_Level_Pressure">
                     </div>
-                    <div class="col">
-                        <div id="timeCell3Temperature"></div>
-                        <div id="timeCell3WindDerrection"></div>
-                        <div id="timeCell3Precipitation"></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell4Temperature"></div>
-                        <div id="timeCell4WindDerrection"></div>
-                        <div id="timeCell4Precipitation"></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell5Temperature"></div>
-                        <div id="timeCell5WindDerrection"></div>
-                        <div id="timeCell5Precipitation"></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell6Temperature"></div>
-                        <div id="timeCell6WindDerrection"></div>
-                        <div id="timeCell6Precipitation"></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell7Temperature"></div>
-                        <div id="timeCell7WindDerrection"></div>
-                        <div id="timeCell7Precipitation"></div>
-                    </div>
-                    <div class="col">
-                        <div id="timeCell8Temperature"></div>
-                        <div id="timeCell8WindDerrection"></div>
-                        <div id="timeCell8Precipitation"></div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Total Precipitation (high):</label>
+                        <input type="text" class="form-control" id="Total_Precipitation_high">
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Total Precipitation (low):</label>
+                        <input type="text" class="form-control" id="Total_Precipitation_low">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Snowfall Amount (high):</label>
+                        <input type="text" class="form-control" id="Snowfall_Amount_high">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Snowfall Amount (low):</label>
+                        <input type="text" class="form-control" id="Snowfall_Amount_low">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Total Cloud Cover:</label>
+                        <input type="text" class="form-control" id="Total_Cloud_Cover">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>High Cloud Cover:</label>
+                        <input type="text" class="form-control" id="High_Cloud_Cover">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Medium Cloud Cover:</label>
+                        <input type="text" class="form-control" id="Medium_Cloud_Cover">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Low Cloud Cover:</label>
+                        <input type="text" class="form-control" id="Low_Cloud_Cover">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Sunshine Duration:</label>
+                        <input type="text" class="form-control" id="Sunshine_Duration">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Shortwave Radiation:</label>
+                        <input type="text" class="form-control" id="Shortwave_Radiation">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Wind Speed 10m:</label>
+                        <input type="text" class="form-control" id="Wind_Speed_10m">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Wind Direction 10m:</label>
+                        <input type="text" class="form-control" id="Wind_Direction_10m">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Wind Speed 80m:</label>
+                        <input type="text" class="form-control" id="Wind_Speed_80m">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Wind Direction 80m:</label>
+                        <input type="text" class="form-control" id="Wind_Direction_80m">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Wind Speed 900mb:</label>
+                        <input type="text" class="form-control" id="Wind_Speed_900mb">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Wind Direction 900mb:</label>
+                        <input type="text" class="form-control" id="Wind_Direction_900mb">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Wind Gust:</label>
+                        <input type="text" class="form-control" id="Wind_Gust">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-light btn-block" onclick="sendModelRequest()">DO MAGICK</button>
+        </form>
+    </div>
+
 </body>
 
 </html>

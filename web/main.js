@@ -1,31 +1,27 @@
+
+
 lastID = "trash";
 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var shorDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 var celsiusSymbol = " &#8451";
 var degreeSymbol = " &#176";
 
-
-//////////////
-
-
 function getDataFormServer(cityName) {
-  console.log("2");
-$.ajax({
+  $.ajax({
     url: "wheatherHook.php",
     type: "POST",
     async: false,
     dataType: "json",
-    data:{cityName:cityName},
-    success: function(result) {
-        console.log("transmission succes");
-        object=result;
+    data: { cityName: cityName },
+    success: function (result) {
+      console.log("transmission succes");
+      object = result;
     },
-    error: function(log) {
-      console.log("transmission failed:"+log);
+    error: function (log) {
+      console.log("transmission failed:" + log);
       alert("Get data form server error");
     }
-});
-console.log("3");
+  });
 }
 
 function clickOnPlitsToLock(id) {
@@ -150,7 +146,7 @@ function setupTimePlits(startIndex) {
   timePlitsAnnimationFadeOutAdd(startIndex);
 
   document.getElementById("nameOfDay").innerHTML = days[getDataTime(object.list[startIndex].dt).getDay()];
-  
+
   idItter = 1;
   for (i = startIndex; i < 8 + startIndex; i++) {
     //setup data
@@ -167,15 +163,14 @@ function setupTimePlits(startIndex) {
     }
     idItter++;
   }
-  setTimeout(function() {
+  setTimeout(function () {
     timePlitsAnnimationFadeOutRemove(startIndex);
     timePlitsAnnimationFadeInAdd(startIndex);
-    }, 300);
-  
+  }, 300);
+
 }
 
 function onLoadPage(cityName) {
-  console.log("1");
   getDataFormServer(cityName);
   //set names of days
   document.getElementById("plitsDayName1").innerHTML = shorDays[getDataTime(object.list[0].dt).getDay()];
@@ -218,4 +213,138 @@ function onLoadPage(cityName) {
   //setup time cells time value
   setupTimePlits(0);
   idItter = 1;
-} 
+  setDefaultDemostrationsValue();
+}
+
+function openTab(evt, TabName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace("active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(TabName).style.display = "block";
+  evt.currentTarget.className += "active";
+}
+
+// ---- ML functions
+
+function setDefaultDemostrationsValue() {
+  console.log("defaulr");
+  document.getElementById("Year").value="";
+  document.getElementById("Month").value ="";
+  document.getElementById("Day").value ="";
+  document.getElementById("Hour").value ="";
+  document.getElementById("Temperature").value ="";
+  document.getElementById("Relative_Humidity").value ="";
+  document.getElementById("Sea_Level_Pressure").value ="";
+  document.getElementById("Total_Precipitation_high").value ="";
+  document.getElementById("Total_Precipitation_low").value ="";
+  document.getElementById("Snowfall_Amount_high").value ="";
+  document.getElementById("Snowfall_Amount_low").value ="";
+  document.getElementById("Total_Cloud_Cover").value ="";
+  document.getElementById("High_Cloud_Cover").value ="";
+  document.getElementById("Medium_Cloud_Cover").value ="";
+  document.getElementById("Low_Cloud_Cover").value ="";
+  document.getElementById("Sunshine_Duration").value ="";
+  document.getElementById("Shortwave_Radiation").value ="";
+  document.getElementById("Wind_Speed_10m").value ="";
+  document.getElementById("Wind_Direction_10m").value ="";
+  document.getElementById("Wind_Speed_80m").value ="";
+  document.getElementById("Wind_Direction_80m").value ="";
+  document.getElementById("Wind_Speed_900mb").value ="";
+  document.getElementById("Wind_Direction_900mb").value ="";
+  document.getElementById("Wind_Gust").value ="";
+  
+  document.getElementById("Year").value=2019;
+  document.getElementById("Month").value =05;
+  document.getElementById("Day").value =22;
+  document.getElementById("Hour").value =22;
+  document.getElementById("Temperature").value =20.78;
+  document.getElementById("Relative_Humidity").value =69.00;
+  document.getElementById("Sea_Level_Pressure").value =1007.70;
+  document.getElementById("Total_Precipitation_high").value =0.00;
+  document.getElementById("Total_Precipitation_low").value =0.00;
+  document.getElementById("Snowfall_Amount_high").value =0.00;
+  document.getElementById("Snowfall_Amount_low").value =0.00;
+  document.getElementById("Total_Cloud_Cover").value =0.00;
+  document.getElementById("High_Cloud_Cover").value =0.00;
+  document.getElementById("Medium_Cloud_Cover").value =0.00;
+  document.getElementById("Low_Cloud_Cover").value =0.00;
+  document.getElementById("Sunshine_Duration").value =49.72;
+  document.getElementById("Shortwave_Radiation").value =17.80;
+  document.getElementById("Wind_Speed_10m").value =3.22;
+  document.getElementById("Wind_Direction_10m").value =333.43;
+  document.getElementById("Wind_Speed_80m").value =5.32;
+  document.getElementById("Wind_Direction_80m").value =28.30;
+  document.getElementById("Wind_Speed_900mb").value =4.33;
+  document.getElementById("Wind_Direction_900mb").value =85.24;
+  document.getElementById("Wind_Gust").value =5.04;
+
+}
+
+function makeJsonDataObjectForModel() {
+  jsonObject = {
+    "Month": document.getElementById("Year").value,
+    "Year": document.getElementById("Month").value,
+    "Hour": document.getElementById("Day").value,
+    "Day": document.getElementById("Hour").value,
+    "Temperature": document.getElementById("Temperature").value,
+    "Relative_Humidity": document.getElementById("Relative_Humidity").value,
+    "Sea_Level_Pressure": document.getElementById("Sea_Level_Pressure").value,
+    "Total_Precipitation_high": document.getElementById("Total_Precipitation_high").value,
+    "Total_Precipitation_low": document.getElementById("Total_Precipitation_low").value,
+    "Snowfall_Amount_high": document.getElementById("Snowfall_Amount_high").value,
+    "Snowfall_Amount_low": document.getElementById("Snowfall_Amount_low").value,
+    "Total_Cloud_Cover": document.getElementById("Total_Cloud_Cover").value,
+    "High_Cloud_Cover": document.getElementById("High_Cloud_Cover").value,
+    "Medium_Cloud_Cover": document.getElementById("Medium_Cloud_Cover").value,
+    "Low_Cloud_Cover": document.getElementById("Low_Cloud_Cover").value,
+    "Sunshine_Duration": document.getElementById("Sunshine_Duration").value,
+    "Shortwave_Radiation": document.getElementById("Shortwave_Radiation").value,
+    "Wind_Speed_10m": document.getElementById("Wind_Speed_10m").value,
+    "Wind_Direction_10m": document.getElementById("Wind_Direction_10m").value,
+    "Wind_Speed_80m": document.getElementById("Wind_Speed_80m").value,
+    "Wind_Direction_80m": document.getElementById("Wind_Direction_80m").value,
+    "Wind_Speed_900mb": document.getElementById("Wind_Speed_900mb").value,
+    "Wind_Direction_900mb": document.getElementById("Wind_Direction_900mb").value,
+    "Wind_Gust": document.getElementById("Wind_Gust").value
+  }
+  return jsonObject;
+}
+
+
+function mlAnswerRequest(modelData) {
+  $.ajax({
+    url: "http://localhost:5000/api",
+    type: "POST",
+    async: false,
+    dataType: 'json',
+    contentType: 'application/json',
+    crossDomain: true,
+    "Access-Control-Allow-Origin": "*",
+    crossOrigin: true,
+    data: { testData: JSON.stringify(modelData) },
+    success: function (result) {
+      alert("result " + result);
+    },
+    error: function (response) {
+      alert("error-" + response.status + ": " + response.responseText);
+    }
+  });
+}
+
+function sendModelRequest() {
+  inputModelData = makeJsonDataObjectForModel();
+  mlAnswerRequest(inputModelData)
+}
