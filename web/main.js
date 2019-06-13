@@ -49,7 +49,8 @@ function clickOnPlitsToLock(id) {
       .classList.add("informationalPanelDown");
   }
 
-  if (id == "plits7") {
+  if (id == "plits5") {
+    console.log("up");
     document
       .getElementById("informationalPanel")
       .classList.remove("informationalPanelDown");
@@ -57,6 +58,7 @@ function clickOnPlitsToLock(id) {
       .getElementById("informationalPanel")
       .classList.toggle("informationalPanelRightUp");
   } else {
+    console.log("down");
     document
       .getElementById("informationalPanel")
       .classList.remove("informationalPanelRightUp");
@@ -240,32 +242,6 @@ function openTab(evt, TabName) {
 // ---- ML functions
 
 function setDefaultDemostrationsValue() {
-  console.log("defaulr");
-  document.getElementById("Year").value="";
-  document.getElementById("Month").value ="";
-  document.getElementById("Day").value ="";
-  document.getElementById("Hour").value ="";
-  document.getElementById("Temperature").value ="";
-  document.getElementById("Relative_Humidity").value ="";
-  document.getElementById("Sea_Level_Pressure").value ="";
-  document.getElementById("Total_Precipitation_high").value ="";
-  document.getElementById("Total_Precipitation_low").value ="";
-  document.getElementById("Snowfall_Amount_high").value ="";
-  document.getElementById("Snowfall_Amount_low").value ="";
-  document.getElementById("Total_Cloud_Cover").value ="";
-  document.getElementById("High_Cloud_Cover").value ="";
-  document.getElementById("Medium_Cloud_Cover").value ="";
-  document.getElementById("Low_Cloud_Cover").value ="";
-  document.getElementById("Sunshine_Duration").value ="";
-  document.getElementById("Shortwave_Radiation").value ="";
-  document.getElementById("Wind_Speed_10m").value ="";
-  document.getElementById("Wind_Direction_10m").value ="";
-  document.getElementById("Wind_Speed_80m").value ="";
-  document.getElementById("Wind_Direction_80m").value ="";
-  document.getElementById("Wind_Speed_900mb").value ="";
-  document.getElementById("Wind_Direction_900mb").value ="";
-  document.getElementById("Wind_Gust").value ="";
-  
   document.getElementById("Year").value=2019;
   document.getElementById("Month").value =05;
   document.getElementById("Day").value =22;
@@ -329,8 +305,6 @@ function mlAnswerRequest(modelData) {
     url: "http://localhost:5000/api",
     type: "POST",
     async: false,
-    dataType: 'json',
-    contentType: 'application/json',
     crossDomain: true,
     "Access-Control-Allow-Origin": "*",
     crossOrigin: true,
